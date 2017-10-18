@@ -5,9 +5,9 @@ library("RColorBrewer")
 library("MASS")
 
 # ubuntu
-# setwd("/home/bo/Desktop/deeplearning/project")
+setwd("/home/bo/Desktop/deeplearning/Project")
 # mac
-setwd("/Users/alexpb/Desktop/Course/820/deeplearning/Project")
+# setwd("/Users/alexpb/Desktop/Course/820/deeplearning/Project")
 
 
 standardDFFor4VariableSystem <- function(strScenarioName, strWPathAndFile, strXPathAndFile, strYPathAndFile, strZPathAndFile)
@@ -114,6 +114,7 @@ performSymmetricAllPairsAnalysisFor4VariableSystem <- function(df,
   # we proceed down the upper-diagonal matrix of possible matches
   # pairwise with w
   # w and x
+  
   resultsWX = performCCM(strWVariableName, strXVariableName, strWDescription, strXDescription)
   resultsXW = performCCM(strXVariableName, strWVariableName, strXDescription, strWDescription)
   
@@ -218,7 +219,12 @@ performStockFlowAllPairsAnalysisFor4VariableSystem <- function(df,
   # we proceed down the upper-diagonal matrix of possible matches
   # pairwise with w
   # w and x
+  print("perform WX")
+  start_time <- Sys.time()
   resultsWX = performCCM(strDeltaWVariableName, strXVariableName, strWDescription, strXDescription)
+  end_time <- Sys.time()
+  print(paste("Duration: ", toString(end_time - start_time)))
+
   resultsXW = performCCM(strDeltaXVariableName, strWVariableName, strXDescription, strWDescription)
   
   # w and y
@@ -469,9 +475,9 @@ for(item in c(1 : totalNum)){
 
   #   the below performs the analysis for multiple values of E (here, E={2,4,8,16}):
   resultsSymmetricSweepAnalysisPredPreyVariant <- performStandardStockFlowCCMByEFor4VariableSystem(dfDualPredPreyVariant, 
-                                                                                                  vecEmbeddingDimensionE=c(2,4,8,16),  
-                                                                                                  stepL = 200, 
-                                                                                                  countSamplesPerL = 1000)
+                                                                                                  vecEmbeddingDimensionE=c(2,4,8),  
+                                                                                                  stepL = 300, 
+                                                                                                  countSamplesPerL = 300)
 
   # the below creates the density plots from this
   createDensityPlotsFromStandardSweepSingleAllPairsAnalysisFor4VariableSystem(resultsSymmetricSweepAnalysisPredPreyVariant)
