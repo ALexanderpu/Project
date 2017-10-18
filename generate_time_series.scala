@@ -105,7 +105,7 @@ def create_models(num:Int){
 }
 
 // time use: for each model it will cost almost 6 seconds  1000 models ->almost 2 hours
-// memory use: 4 files for a model: 41 * 4 kb   for 1000 models it would be 0.16GB
+// memory use: 4 files for a model: 41 * 4 kb   for 100 models it would be 0.16GB
 
 // start with scala -J-Xmx6g generate_time_series.scala
 create_models(10)

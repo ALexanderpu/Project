@@ -426,7 +426,7 @@ createDensityPlotsFromStandardSweepSingleAllPairsAnalysisFor4VariableSystem <- f
   for (i in seq(1, length(vecCCM_resultsBySweptVariable)))
   {
     createDensityPlotsFromAllPairs4DAnalysis(vecCCM_resultsBySweptVariable[[i]], isDisplayMAE=isDisplayMAE)
-  } 
+  }
 }
 
 
@@ -471,6 +471,8 @@ for(item in c(1 : totalNum)){
   #   the below creatses a density plot for the actual analysis for the SINGLE value of E (E=4) computed above
   #createDensityPlotsFromStandardNonSweepAnalysisFor4VariableSystem(resultDualPredPreyVariant6E4)
 
+
+
   dfDualPredPreyVariant <- standardDFFor4VariableSystem(description, wStr, xStr, yStr, zStr)
 
   #   the below performs the analysis for multiple values of E (here, E={2,4,8,16}):
@@ -480,7 +482,7 @@ for(item in c(1 : totalNum)){
                                                                                                   countSamplesPerL = 300)
 
   # the below creates the density plots from this
-  createDensityPlotsFromStandardSweepSingleAllPairsAnalysisFor4VariableSystem(resultsSymmetricSweepAnalysisPredPreyVariant)
+  save(resultsSymmetricSweepAnalysisPredPreyVariant, file="./RData/resultsSymmetricSweepAnalysisPredPreyVariant.RData")
 
   end_time <- Sys.time()
 
